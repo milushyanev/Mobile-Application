@@ -4,7 +4,7 @@ class SecondRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.black87,
 
     );
   }
