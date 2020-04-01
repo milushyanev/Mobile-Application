@@ -63,7 +63,7 @@ class EasyWeightLossRoute extends StatelessWidget{
               Align(
                 alignment: Alignment.center,
                 child: Text(
-                    "MONDAY WEDNESDAY FRIDAY",
+                    "Up to 1 Minute Rest after each Series !!!",
                     style: new TextStyle(
                         fontStyle: FontStyle.italic,
                         color: Colors.redAccent,
@@ -77,7 +77,7 @@ class EasyWeightLossRoute extends StatelessWidget{
               Align(
                 alignment: Alignment.center,
                 child: Text(
-                    "Up to 1 Minute Rest after each Series !!!",
+                    "MONDAY WEDNESDAY FRIDAY",
                     style: new TextStyle(
                         fontStyle: FontStyle.italic,
                         color: Colors.redAccent,
@@ -87,6 +87,7 @@ class EasyWeightLossRoute extends StatelessWidget{
                     )
                 ),
               ),
+
               Padding(padding: EdgeInsets.all(10.0)),
               const Text.rich(
                 TextSpan(
