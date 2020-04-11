@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/easyWeightLossDiet.dart';
-import 'package:flutter_app/intenseWeightLossDiet.dart';
-import 'package:flutter_app/mediumWeightLossDiet.dart';
+
 
 class WeightLossDietRoute extends StatelessWidget{
   @override
@@ -25,79 +23,22 @@ class WeightLossDietRoute extends StatelessWidget{
             color: Colors.black87,
             colorBlendMode: BlendMode.darken,
           ),
-          new Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          ListView(
+            children: [
+              const Text.rich(
+                TextSpan(
+                  // default text style
+                  children: <TextSpan>[
 
+                    TextSpan(text: ' TRICEPS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 14)),
+                    TextSpan(text: 'Lying Triceps Extensions, Triceps Dips, Lateral Head with V Bar, One-Arm Overhead Extensions - 12,10,10,8,6 (each)', style: TextStyle(fontSize:14,color:Colors.white)),
 
-            children: <Widget>[
-              new Padding(
-                padding: const EdgeInsets.only(
-                    top: 70.0),
+                  ],
+                ),
               ),
-
-              new MaterialButton(
-
-                height: 100.0,
-                minWidth: 300.0,
-                color: Colors.teal,
-                textColor: Colors.white,
-                child: new Text(
-                    "EASY"),
-                onPressed: ()=>{
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => EasyWeightLossDietRoute()),
-                  ),
-
-                },
-              ),
-              new Padding(
-                padding: const EdgeInsets.only(
-                    top: 30.0),
-              ),
-
-              new MaterialButton(
-
-                height: 100.0,
-                minWidth: 300.0,
-                color: Colors.teal,
-                textColor: Colors.white,
-                child: new Text(
-                    "MEDIUM"),
-                onPressed: ()=>{
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MediumWeightLossDietRoute()),
-                  ),
-
-                },
-              ),
-              new Padding(
-                padding: const EdgeInsets.only(
-                    top: 30.0),
-              ),
-
-              new MaterialButton(
-
-                height: 100.0,
-                minWidth: 300.0,
-                color: Colors.teal,
-                textColor: Colors.white,
-                child: new Text(
-                    "INTENSE"),
-                onPressed: ()=>{
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => IntenseWeightLossDietRoute()),
-                  ),
-
-                },
-              ),
-
-            ],),
-
-        ],
-      ),
+            ],
+          ),
+        ],),
     );
   }
 }
