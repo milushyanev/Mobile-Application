@@ -26,6 +26,8 @@ class LeanBodyRoute extends StatelessWidget{
             color: Colors.black87,
             colorBlendMode: BlendMode.darken,
           ),
+   ListView(
+    children: [
           new Column(
             crossAxisAlignment: CrossAxisAlignment.center,
 
@@ -96,7 +98,8 @@ class LeanBodyRoute extends StatelessWidget{
               ),
 
             ],),
-
+        ],
+      ),
         ],
       ),
     );
