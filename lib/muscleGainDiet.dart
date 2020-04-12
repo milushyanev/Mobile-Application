@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'dart:ui' as ui;
 void main() {
   runApp(new MaterialApp(
@@ -21,12 +22,12 @@ class ShadowText extends StatelessWidget {
             left: 2.0,
             child: new Text(
               data,
-              style: style.copyWith(color: Colors.white70),
+              style: style.copyWith(color: Colors.white),
             ),
           ),
           new BackdropFilter(
             filter: new ui.ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
-            child: new Text(data, style: style.copyWith(color: Colors.red)),
+            child: new Text(data, style: style.copyWith(color: Colors.black)),
           ),
         ],
       ),
@@ -56,13 +57,13 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
     return new Scaffold(
       appBar: new AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.red),
+            icon: Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () => Navigator.of(context).pop(),
           ),
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
 
-          title: new Text( "MUSCLE GAIN WEEKLY PLAN",style: TextStyle(color: Colors.red,fontSize: 20) )
+          title: new Text( "MUSCLE GAIN WEEKLY PLAN",style: TextStyle(color: Colors.white,fontSize: 20) )
       ),
       body: new Stack(
 
@@ -72,30 +73,37 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
           new Image(
             image: AssetImage( "assets/example.jpg" ),
             fit: BoxFit.cover,
-            color: Colors.black.withOpacity( 0.8 ),
+            color: Colors.transparent,
             colorBlendMode: BlendMode.darken,
           ),
           ListView(
 
             children: [
 
-              Padding( padding: EdgeInsets.all( 5.0 ) ),
-              Align(
-                alignment: Alignment.center,
-                child: GestureDetector(
-                  onTap: () {
+              Padding( padding: EdgeInsets.all( 15.0 ) ),
+              Container(
+                width: 20.0,
+                height: 60.0,
+                color: Colors.grey.withOpacity(.4),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: GestureDetector(
+                    onTap: () {
 
-                    setState(() => showMonday=!showMonday);
-                  },
-                  child: new ShadowText(
+                      setState(() => showMonday=!showMonday);
+                    },
+
+                    child: new ShadowText(
                       "MONDAY",
-                    style: Theme.of(context).textTheme.display3,
+                      style: Theme.of(context).textTheme.display3,
+                    ),
                   ),
                 ),
               ),
               Padding( padding: EdgeInsets.all( 10.0 ) ),
               showMonday ?
               Container(
+                color: Colors.black.withOpacity(.8),
                 child: Column(
                   children: <Widget>[
                     const Text.rich(
@@ -224,6 +232,22 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
                         ],
                       ),
                     ),
+                    Padding(padding: EdgeInsets.all(10.0)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children:<Widget>[
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL,
+                          child: Text('Google Link',style: TextStyle(color: Colors.black)),
+                        ),
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL1,
+                          child: Text('UNIT Converter',style: TextStyle(color: Colors.black)),
+                        ),
+                    ],
+                    ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
                   ],
                 ),
@@ -231,22 +255,29 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
 
               :
               Row(),
-              Align(
-                alignment: Alignment.center,
-                child: GestureDetector(
-                  onTap: () {
+              Container(
+                width: 20.0,
+                height: 60.0,
+                color: Colors.grey.withOpacity(.4),
 
-                    setState(() => showTuesday=!showTuesday);
-                  },
-                  child: ShadowText(
-                      "TUESDAY",
-                    style: Theme.of(context).textTheme.display3,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: GestureDetector(
+                    onTap: () {
+
+                      setState(() => showTuesday=!showTuesday);
+                    },
+                    child: ShadowText(
+                        "TUESDAY",
+                      style: Theme.of(context).textTheme.display3,
+                    ),
                   ),
                 ),
               ),
               Padding( padding: EdgeInsets.all( 10.0 ) ),
               showTuesday ?
               Container(
+                color: Colors.black.withOpacity(.8),
                 child: Column(
                   children: <Widget>[
                     const Text.rich(
@@ -374,6 +405,22 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
                         ],
                       ),
                     ),
+                    Padding(padding: EdgeInsets.all(10.0)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children:<Widget>[
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL,
+                          child: Text('Google Link',style: TextStyle(color: Colors.black)),
+                        ),
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL1,
+                          child: Text('UNIT Converter',style: TextStyle(color: Colors.black)),
+                        ),
+                      ],
+                    ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
                   ],
                 ),
@@ -381,23 +428,28 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
 
                   :
               Row(),
-              Align(
-                alignment: Alignment.center,
-                child: GestureDetector(
-                  onTap: () {
+              Container(
+                width: 20.0,
+                height: 60.0,
+                color: Colors.grey.withOpacity(.4),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: GestureDetector(
+                    onTap: () {
 
-                    setState(() => showWednesday=!showWednesday);
-                  },
-                  child: ShadowText(
-                    "WEDNESDAY",
-                    style: Theme.of(context).textTheme.display3,
+                      setState(() => showWednesday=!showWednesday);
+                    },
+                    child: ShadowText(
+                      "WEDNESDAY",
+                      style: Theme.of(context).textTheme.display3,
+                    ),
                   ),
                 ),
               ),
               Padding( padding: EdgeInsets.all( 10.0 ) ),
               showWednesday ?
               Container(
-
+                color: Colors.black.withOpacity(.8),
                 child: Column(
                   children: <Widget>[
                     const Text.rich(
@@ -525,28 +577,50 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
                         ],
                       ),
                     ),
+                    Padding(padding: EdgeInsets.all(10.0)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children:<Widget>[
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL,
+                          child: Text('Google Link',style: TextStyle(color: Colors.black)),
+                        ),
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL1,
+                          child: Text('UNIT Converter',style: TextStyle(color: Colors.black)),
+                        ),
+                      ],
+                    ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
                   ],
                 ),
               )
                   :
               Row(),
-              Align(
-                alignment: Alignment.center,
-                child: GestureDetector(
-                  onTap: () {
+              Container(
+                width: 20.0,
+                height: 60.0,
+                color: Colors.grey.withOpacity(.4),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: GestureDetector(
+                    onTap: () {
 
-                    setState(() => showThursday=!showThursday);
-                  },
-                  child: ShadowText(
-                    "THURSDAY",
-                    style: Theme.of(context).textTheme.display3,
+                      setState(() => showThursday=!showThursday);
+                    },
+                    child: ShadowText(
+                      "THURSDAY",
+                      style: Theme.of(context).textTheme.display3,
+                    ),
                   ),
                 ),
               ),
               Padding( padding: EdgeInsets.all( 10.0 ) ),
               showThursday ?
               Container(
+                color: Colors.black.withOpacity(.8),
                 child: Column(
                   children: <Widget>[
                     const Text.rich(
@@ -674,28 +748,50 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
                         ],
                       ),
                     ),
+                    Padding(padding: EdgeInsets.all(10.0)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children:<Widget>[
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL,
+                          child: Text('Google Link',style: TextStyle(color: Colors.black)),
+                        ),
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL1,
+                          child: Text('UNIT Converter',style: TextStyle(color: Colors.black)),
+                        ),
+                      ],
+                    ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
                   ],
                 ),
               )
                   :
               Row(),
-              Align(
-                alignment: Alignment.center,
-                child: GestureDetector(
-                  onTap: () {
+              Container(
+                width: 20.0,
+                height: 60.0,
+                color: Colors.grey.withOpacity(.4),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: GestureDetector(
+                    onTap: () {
 
-                    setState(() => showFriday=!showFriday);
-                  },
-                  child: ShadowText(
-                    "FRIDAY",
-                    style: Theme.of(context).textTheme.display3,
+                      setState(() => showFriday=!showFriday);
+                    },
+                    child: ShadowText(
+                      "FRIDAY",
+                      style: Theme.of(context).textTheme.display3,
+                    ),
                   ),
                 ),
               ),
               Padding( padding: EdgeInsets.all( 10.0 ) ),
               showFriday ?
               Container(
+                color: Colors.black.withOpacity(.8),
                 child: Column(
                   children: <Widget>[
                     const Text.rich(
@@ -823,28 +919,50 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
                         ],
                       ),
                     ),
+                    Padding(padding: EdgeInsets.all(10.0)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children:<Widget>[
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL,
+                          child: Text('Google Link',style: TextStyle(color: Colors.black)),
+                        ),
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL1,
+                          child: Text('UNIT Converter',style: TextStyle(color: Colors.black)),
+                        ),
+                      ],
+                    ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
                   ],
                 ),
               )
                   :
               Row(),
-              Align(
-                alignment: Alignment.center,
-                child: GestureDetector(
-                  onTap: () {
+              Container(
+                width: 20.0,
+                height: 60.0,
+                color: Colors.grey.withOpacity(.4),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: GestureDetector(
+                    onTap: () {
 
-                    setState(() => showSaturday=!showSaturday);
-                  },
-                  child: ShadowText(
-                    "SATURDAY",
-                    style: Theme.of(context).textTheme.display3,
+                      setState(() => showSaturday=!showSaturday);
+                    },
+                    child: ShadowText(
+                      "SATURDAY",
+                      style: Theme.of(context).textTheme.display3,
+                    ),
                   ),
                 ),
               ),
               Padding( padding: EdgeInsets.all( 10.0 ) ),
               showSaturday ?
               Container(
+                color: Colors.black.withOpacity(.8),
                 child: Column(
                   children: <Widget>[
                     const Text.rich(
@@ -971,6 +1089,22 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
 
                         ],
                       ),
+                    ),
+                    Padding(padding: EdgeInsets.all(10.0)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children:<Widget>[
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL,
+                          child: Text('Google Link',style: TextStyle(color: Colors.black)),
+                        ),
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL1,
+                          child: Text('UNIT Converter',style: TextStyle(color: Colors.black)),
+                        ),
+                      ],
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
                   ],
@@ -978,22 +1112,28 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
               )
                   :
               Row(),
-              Align(
-                alignment: Alignment.center,
-                child: GestureDetector(
-                  onTap: () {
+              Container(
+                width: 20.0,
+                height: 60.0,
+                color: Colors.grey.withOpacity(.3),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: GestureDetector(
+                    onTap: () {
 
-                    setState(() => showSunday=!showSunday);
-                  },
-                  child: ShadowText(
-                    "SUNDAY",
-                    style: Theme.of(context).textTheme.display3,
+                      setState(() => showSunday=!showSunday);
+                    },
+                    child: ShadowText(
+                      "SUNDAY",
+                      style: Theme.of(context).textTheme.display3,
+                    ),
                   ),
                 ),
               ),
               Padding( padding: EdgeInsets.all( 10.0 ) ),
               showSunday ?
               Container(
+                color: Colors.black.withOpacity(.8),
                 child: Column(
                   children: <Widget>[
                     const Text.rich(
@@ -1120,6 +1260,22 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
 
                         ],
                       ),
+                    ),
+                    Padding(padding: EdgeInsets.all(10.0)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children:<Widget>[
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL,
+                          child: Text('Google Link',style: TextStyle(color: Colors.black)),
+                        ),
+                        RaisedButton(
+                          color: Colors.white,
+                          onPressed: _launchURL1,
+                          child: Text('UNIT Converter',style: TextStyle(color: Colors.black)),
+                        ),
+                      ],
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
                   ],
@@ -1134,4 +1290,20 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
     );
   }
 
+}
+_launchURL() async {
+  const url = 'https://www.google.com/';
+  if (await canLaunch( url )) {
+    await launch( url );
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+_launchURL1() async {
+  const url = 'https://www.unitconverters.net/';
+  if (await canLaunch( url )) {
+    await launch( url );
+  } else {
+    throw 'Could not launch $url';
+  }
 }
