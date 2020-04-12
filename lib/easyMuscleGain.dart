@@ -63,7 +63,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
 
-          title: new Text( "LEAN BODY WEEKLY PLAN",style: TextStyle(color: Colors.white,fontSize: 20,fontStyle: FontStyle.italic) )
+          title: new Text( "EASY MUSCLE GAIN WORKOUT",style: TextStyle(color: Colors.white,fontSize: 20,fontStyle: FontStyle.italic) )
       ),
       body: new Stack(
 
