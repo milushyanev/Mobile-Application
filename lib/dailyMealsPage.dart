@@ -25,12 +25,12 @@ class ShadowText extends StatelessWidget {
             left: 2.0,
             child: new Text(
               data,
-              style: style.copyWith(color: Colors.black),
+              style: style.copyWith(color: Colors.black,fontStyle: FontStyle.italic),
             ),
           ),
           new BackdropFilter(
             filter: new ui.ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
-            child: new Text(data, style: style.copyWith(color: Colors.white)),
+            child: new Text(data, style: style.copyWith(color: Colors.white,fontStyle: FontStyle.italic)),
           ),
         ],
       ),

@@ -22,12 +22,12 @@ class ShadowText extends StatelessWidget {
             left: 2.0,
             child: new Text(
               data,
-              style: style.copyWith(color: Colors.white),
+              style: style.copyWith(color: Colors.white,fontStyle: FontStyle.italic),
             ),
           ),
           new BackdropFilter(
             filter: new ui.ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
-            child: new Text(data, style: style.copyWith(color: Colors.black)),
+            child: new Text(data, style: style.copyWith(color: Colors.black,fontStyle: FontStyle.italic)),
           ),
         ],
       ),
@@ -63,7 +63,7 @@ class _MuscleGainDietRoute extends State<MuscleGainDietRoute> {
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
 
-          title: new Text( "MUSCLE GAIN WEEKLY PLAN",style: TextStyle(color: Colors.white,fontSize: 20) )
+          title: new Text( "MUSCLE GAIN WEEKLY PLAN",style: TextStyle(color: Colors.white,fontSize: 20,fontStyle: FontStyle.italic) )
       ),
       body: new Stack(
 
