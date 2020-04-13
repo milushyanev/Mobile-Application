@@ -49,8 +49,6 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
   bool showWednesday=false;
   bool showThursday=false;
   bool showFriday=false;
-  bool showSaturday=false;
-  bool showSunday=false;
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +134,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                         children: <TextSpan>[
 
                           TextSpan(text: ' BACK: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
-                          TextSpan(text: 'Lateral Pulldowns, Bent-Over Barbell Rows,Seated Cable Rows -12,10,8,6 (each) ', style: TextStyle(fontSize:24,color:Colors.white)),
+                          TextSpan(text: 'Lateral Pulldowns, Bent-Over Barbell Rows,Seated Cable Rows - 12, 10, 8, 6 (each) ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
@@ -148,7 +146,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                         children: <TextSpan>[
 
                           TextSpan(text: ' SHOULDERS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
-                          TextSpan(text: 'Cable Cross-over Reverse Fly- 12,10,8 ', style: TextStyle(fontSize:24,color:Colors.white)),
+                          TextSpan(text: 'Cable Cross-over Reverse Fly- 12, 10, 8 ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
@@ -159,7 +157,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                         children: <TextSpan>[
 
                           TextSpan(text: ' BICEPS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
-                          TextSpan(text: 'Curls- 12,12,10,8 ', style: TextStyle(fontSize:24,color:Colors.white)),
+                          TextSpan(text: 'Curls- 12, 12, 10, 8 ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
@@ -218,7 +216,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                         children: <TextSpan>[
 
                           TextSpan(text: ' CHEST: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
-                          TextSpan(text: 'Straight Bar Bench Press, Dumbbell Bench Press, Bent Forward Cable crossover -12,10,8,6 (each)  ', style: TextStyle(fontSize:24,color:Colors.white)),
+                          TextSpan(text: 'Straight Bar Bench Press, Dumbbell Bench Press, Bent Forward Cable crossover -12, 10, 8, 6 (each)  ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
@@ -230,7 +228,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                         children: <TextSpan>[
 
                           TextSpan(text: ' SHOULDERS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
-                          TextSpan(text: 'Seated Dumbbell Overhead Press - 15,12,12,10 ', style: TextStyle(fontSize:24,color:Colors.white)),
+                          TextSpan(text: 'Seated Dumbbell Overhead Press - 15, 12, 12, 10 ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
@@ -241,7 +239,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                         children: <TextSpan>[
 
                           TextSpan(text: ' TRICEPRS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
-                          TextSpan(text: 'Lateral Head with V Bar - 12,12,10', style: TextStyle(fontSize:24,color:Colors.white)),
+                          TextSpan(text: 'Lateral Head with V Bar - 12, 12, 10', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
@@ -298,7 +296,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                         children: <TextSpan>[
 
                           TextSpan(text: ' LEGS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
-                          TextSpan(text: 'Squads, Leg Press, Walking Lunge, Single Leg Curl(back), Glute Hamstrings Raise - 12,10,8,6(each)', style: TextStyle(fontSize:24,color:Colors.white)),
+                          TextSpan(text: 'Squads, Leg Press, Walking Lunge, Single Leg Curl(back), Glute Hamstrings Raise - 12, 10, 8, 6  (each)', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
@@ -310,7 +308,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                         children: <TextSpan>[
 
                           TextSpan(text: ' TRAPEZIUS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
-                          TextSpan(text: 'Shrugs, Upright Rows - 12,10,8 (each) ', style: TextStyle(fontSize:24,color:Colors.white)),
+                          TextSpan(text: 'Shrugs, Upright Rows - 12, 10, 8 (each) ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
@@ -366,7 +364,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                         children: <TextSpan>[
 
                           TextSpan(text: ' SHOULDERS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
-                          TextSpan(text: 'Seated Dumbbell Lateral Raise, Behind Head Push Press, Seated Dumbbell Overhead Press, Cable Cross-over Reverse Fly - 12,12,10,8 (each) ', style: TextStyle(fontSize:24,color:Colors.white)),
+                          TextSpan(text: 'Seated Dumbbell Lateral Raise, Behind Head Push Press, Seated Dumbbell Overhead Press, Cable Cross-over Reverse Fly - 12, 12, 10, 8 (each) ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
@@ -422,7 +420,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                         children: <TextSpan>[
 
                           TextSpan(text: ' TRICEPS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
-                          TextSpan(text: 'Lying Triceps Extensions, Triceps Dips, Lateral Head with V Bar, One-Arm Overhead Extensions - 12,12,10,8 (each)', style: TextStyle(fontSize:24,color:Colors.white)),
+                          TextSpan(text: 'Lying Triceps Extensions, Triceps Dips, Lateral Head with V Bar, One-Arm Overhead Extensions - 12, 12, 10, 8 (each)', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
@@ -434,7 +432,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                         children: <TextSpan>[
 
                           TextSpan(text: ' BICEPS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
-                          TextSpan(text: 'Standing Barbell Curls, Curls, Cable Rope Hammer Curl- 12,12,10 (each)', style: TextStyle(fontSize:24,color:Colors.white)),
+                          TextSpan(text: 'Standing Barbell Curls, Curls, Cable Rope Hammer Curl- 12, 12, 10 (each)', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
