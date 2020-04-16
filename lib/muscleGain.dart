@@ -1,8 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/easyMuscleGain.dart';
+import 'package:flutter_app/hydratitionPage.dart';
+import 'package:flutter_app/easyLeanBodyPage.dart';
+import 'package:flutter_app/intenseLeanBodyPage.dart';
+import 'package:flutter_app/mediumLeanBodyPage.dart';
+import 'package:flutter_app/easyWeightLossPage.dart';
+import 'package:flutter_app/intenseWeightLossPage.dart';
+import 'package:flutter_app/mediumWeightLossPage.dart';
+import 'package:flutter_app/leanBodyDietPage.dart';
+import 'package:flutter_app/muscleGainDiet.dart';
+import 'package:flutter_app/weightLossDiet.dart';
+import 'profilePage.dart';
+import 'resourcesPage.dart';
+import 'secondPage.dart';
+import 'workoutsPage.dart';
 import 'package:flutter_app/intenseMuscleGain.dart';
 import 'package:flutter_app/mediumMuscleGain.dart';
 import 'dart:ui' as ui;
+
+void main() => runApp(MuscleGainRoute());
+
 class ShadowText extends StatelessWidget {
   ShadowText(this.data, { this.style }) : assert(data != null);
 
@@ -45,106 +62,328 @@ class MuscleGainRoute extends StatelessWidget{
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
 
-          title: new Text( "MUSCLE GAIN WORKOUTS",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
+          title: new Text( "Welcome to Modern Fitness Life",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
       ),
-      body: Container(
+      body:
+      Container(
         decoration: new BoxDecoration(
-          gradient: new LinearGradient(colors: [gradientStart, gradientEnd],
-              begin: const FractionalOffset(0.5, 0.0),
-              end: const FractionalOffset(0.0, 0.5),
-              stops: [0.0,1.0],
-              tileMode: TileMode.clamp
+          color: Colors.black.withOpacity(.8),
           ),
-        ),
-
         child: new Stack(
 
           fit: StackFit.expand,
           children: <Widget>[
+          ListView(
+            children: <Widget>[
+              new Column(
 
-            new Column(
-
-              crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
 
 
-              children: <Widget>[
-                new Padding(
-                  padding: const EdgeInsets.only(
-                      top: 50.0),
-                ),
+                children: <Widget>[
 
-                Container(
-                  width: 150,
-                  height: 150,
-                  child: MaterialButton(
-                    shape: CircleBorder(side: BorderSide(width: 2, color: Colors.black, style: BorderStyle.solid)),
-                    child: Text("Easy", style: TextStyle(fontSize: 30)
+                  Card(
+                    color:Colors.white.withOpacity(.9),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+
+                      children: <Widget>[
+                        Container(
+
+                          child: const ListTile(
+
+                            leading: Icon(Icons.fitness_center),
+                            title: Text('MUSCLE GAIN WORKOUTS'),
+                            subtitle: Text('"No Pain, No Gain."'),
+                          ),
+                        ),
+                        ButtonBar(
+                          children: <Widget>[
+                            FlatButton(
+                              child: const Text('EASY'),
+                              onPressed: () =>{
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => EasyMuscleGainRoute()),
+                                ),
+
+                              },
+                            ),
+                            FlatButton(
+                              child: const Text('MEDIUM'),
+                              onPressed: () =>{
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => MediumMuscleGainRoute()),
+                                ),
+                              },
+                            ),
+                            FlatButton(
+                              child: const Text('INTENSE'),
+                              onPressed: () =>{
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => IntenseMuscleGainRoute()),
+                                ),
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    color: Colors.green,
-                    splashColor: Colors.blue,
-                    textColor: Colors.white,
-                    onPressed: ()=>{
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => EasyMuscleGainRoute()),
-                      ),
-
-                    },
                   ),
-                ),
-                new Padding(
-                  padding: const EdgeInsets.only(
-                      top: 30.0),
-                ),
-                Container(
-                  width: 150,
-                  height: 150,
-                  child: MaterialButton(
-                    shape: CircleBorder(side: BorderSide(width: 2, color: Colors.black, style: BorderStyle.solid)),
-                    child: Text("Medium", style: TextStyle(fontSize: 30)
+                  Card(
+                    color:Colors.white.withOpacity(.9),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+
+                      children: <Widget>[
+                        Container(
+
+                          child: const ListTile(
+
+                            leading: Icon(Icons.fitness_center),
+                            title: Text('LEAN BODY WORKOUTS'),
+                            subtitle: Text('"Float like a butterfly, sting like a bee."'),
+                          ),
+                        ),
+                        ButtonBar(
+                          children: <Widget>[
+                            FlatButton(
+                              child: const Text('EASY'),
+                              onPressed: () =>{
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => EasyLeanBodyLossRoute()),
+                                ),
+
+                              },
+                            ),
+                            FlatButton(
+                              child: const Text('MEDIUM'),
+                              onPressed: () =>{
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => MediumLeanBodyRoute()),
+                                ),
+                              },
+                            ),
+                            FlatButton(
+                              child: const Text('INTENSE'),
+                              onPressed: () =>{
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => IntenseLeanBodyRoute()),
+                                ),
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    color: Colors.orange,
-                    splashColor: Colors.blue,
-                    textColor: Colors.white,
-                    onPressed: ()=>{
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MediumMuscleGainRoute()),
-                      ),
-
-                    },
                   ),
-                ),
+                  Card(
+                    color:Colors.white.withOpacity(.9),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
 
-                new Padding(
-                  padding: const EdgeInsets.only(
-                      top: 30.0),
-                ),
-                Container(
-                  width: 150,
-                  height: 150,
-                  child: MaterialButton(
-                    shape: CircleBorder(side: BorderSide(width: 2, color: Colors.black, style: BorderStyle.solid)),
-                    child: Text("Intense", style: TextStyle(fontSize: 30)
+                      children: <Widget>[
+                        Container(
+
+                          child: const ListTile(
+
+                            leading: Icon(Icons.fitness_center),
+                            title: Text('WEIGHT LOSS WORKOUTS'),
+                            subtitle: Text('"If you have discipline, drive, and determination … nothing is impossible."'),
+                          ),
+                        ),
+                        ButtonBar(
+                          children: <Widget>[
+                            FlatButton(
+                              child: const Text('EASY'),
+                              onPressed: () =>{
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => EasyWeightLossRoute()),
+                                ),
+
+                              },
+                            ),
+                            FlatButton(
+                              child: const Text('MEDIUM'),
+                              onPressed: () =>{
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => MediumWeightLossRoute()),
+                                ),
+                              },
+                            ),
+                            FlatButton(
+                              child: const Text('INTENSE'),
+                              onPressed: () =>{
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => IntenseWeightLossRoute()),
+                                ),
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    color: Colors.red,
-                    splashColor: Colors.blue,
-                    textColor: Colors.white,
-                    onPressed: ()=>{
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => IntenseMuscleGainRoute()),
-                      ),
-
-                    },
                   ),
-                ),
+                  Card(
+                    color:Colors.white.withOpacity(.9),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
 
-              ],),
+                      children: <Widget>[
+                        Container(
+
+                          child: const ListTile(
+
+                            leading: Icon(Icons.fastfood),
+                            title: Text('DAILY MEAL PLANS'),
+                            subtitle: Text('There are 3 choices from easy to intense.'),
+                          ),
+                        ),
+                        ButtonBar(
+                          children: <Widget>[
+                            FlatButton(
+                              child: const Text('MUSCLE GAIN'),
+                              onPressed: () =>{
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => MuscleGainDietRoute()),
+                                ),
+
+                              },
+                            ),
+                            FlatButton(
+                              child: const Text('LEAN BODY'),
+                              onPressed: () =>{
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => LeanBodyDietRoute()),
+                                ),
+                              },
+                            ),
+                            FlatButton(
+                              child: const Text('WEIGHT LOSS'),
+                              onPressed: () =>{
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => WeightLossDietRoute()),
+                                ),
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+
+                ],),
+
+
+
+            ],
+          ),
 
           ],
         ),
+        ),
+
+
+      endDrawer: Drawer(
+
+        // Add a ListView to the drawer. This ensures the user can scroll
+        // through the options in the drawer if there isn't enough vertical
+        // space to fit everything.
+        child: Container(
+          color:Colors.grey,
+          child: ListView(
+
+
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              Container(
+                height:100,
+                child: DrawerHeader(
+                  child: Text( "MENU",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) ),
+                  decoration: BoxDecoration(
+                    color:Colors.black.withOpacity(.8),
+                  ),
+                ),
+              ),
+              Card(
+                color: Colors.white.withOpacity(.8),
+                child: ListTile(
+                  leading: Icon(Icons.local_drink),
+                  title: Text('HYDRATION'),
+                  subtitle: Text('Go to see proper Hydration Info'),
+                  onTap: ()=>{
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HydratitionRoute()),
+                    ),},
+                ),
+              ),
+              Card(
+                color: Colors.white.withOpacity(.8),
+                child: ListTile(
+                  leading: Icon(Icons.home),
+                  title: Text('PROFILE'),
+                  subtitle: Text('Go to the profile page'),
+                  onTap: ()=>{
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProfileRoute()),
+                    ),},
+                ),
+              ),
+              Card(
+                color: Colors.white.withOpacity(.8),
+                child: ListTile(
+                  leading: Icon(Icons.fitness_center),
+                  title: Text('PROGRESS PAGE'),
+                  subtitle: Text('Go to the progress page'),
+                  onTap: ()=>{
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => WorkoutRoute()),
+                    ),},
+                ),
+              ),
+              Card(
+                color: Colors.white.withOpacity(.8),
+                child: ListTile(
+                  leading: Icon(Icons.fitness_center),
+                  title: Text('RESOURSES PAGE'),
+                  subtitle: Text('Go to the resourse page'),
+                  onTap: ()=>{
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ResourcesRoute()),
+                    ),},
+                ),
+              ),
+              ListTile(
+                title: Text('Item 2'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        ),
+
       ),
+
     );
   }
 }
