@@ -52,6 +52,10 @@ flutter:
     - leanBodyDiet.jpg
     - weightLossDiet.jpg
     - muscleGain.jpg
+    - weightLoss.jpg
+    - workoutPage.jpg
+    - leanBodyWorkout.jpg
+
     #- images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

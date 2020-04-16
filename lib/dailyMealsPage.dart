@@ -77,6 +77,9 @@ class DailyMealsRoute extends StatelessWidget{
                 minWidth: 300.0,
                 color: Colors.grey.withOpacity(.8),
                 textColor: Colors.black,
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(18.0),
+                  side: BorderSide(color: Colors.black)),
 
                 child: new ShadowText(
                     "MUSCLE GAIN",style: Theme.of(context).textTheme.display1,),
@@ -99,6 +102,9 @@ class DailyMealsRoute extends StatelessWidget{
                 minWidth: 300.0,
                 color: Colors.grey.withOpacity(.8),
                 textColor: Colors.black,
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(18.0),
+                  side: BorderSide(color: Colors.black)),
                 child: new ShadowText(
                     "WEIGHT LOSS",style: Theme.of(context).textTheme.display1,),
                 onPressed: ()=>{
@@ -120,6 +126,9 @@ class DailyMealsRoute extends StatelessWidget{
                 minWidth: 300.0,
                 color: Colors.grey.withOpacity(.8),
                 textColor: Colors.black,
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(18.0),
+                  side: BorderSide(color: Colors.black)),
                 child: new ShadowText(
                     "LEAN BODY",style: Theme.of(context).textTheme.display1,),
                 onPressed: ()=>{
@@ -127,7 +136,6 @@ class DailyMealsRoute extends StatelessWidget{
                     context,
                     MaterialPageRoute(builder: (context) => LeanBodyDietRoute()),
                   ),
-
                 },
               ),
             ],),

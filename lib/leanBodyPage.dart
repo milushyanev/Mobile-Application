@@ -86,7 +86,7 @@ class LeanBodyRoute extends StatelessWidget{
                     onPressed: ()=>{
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => EasyLeanBodyRoute()),
+                        MaterialPageRoute(builder: (context) => EasyLeanBodyLossRoute()),
                       ),
 
                     },

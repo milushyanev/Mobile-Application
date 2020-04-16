@@ -6,7 +6,6 @@ void main() {
     home: new WeightLossDietRoute(),
   ));
 }
-
 class ShadowText extends StatelessWidget {
   ShadowText(this.data, { this.style }) : assert(data != null);
 
@@ -34,8 +33,6 @@ class ShadowText extends StatelessWidget {
     );
   }
 }
-
-
 class WeightLossDietRoute extends StatefulWidget {
   WeightLossDietRoute();
   @override
@@ -62,7 +59,6 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
           ),
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
-
           title: new Text( "WEIGHT LOSS - KETO WEEKLY PLAN",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
       ),
       body: new Stack(
@@ -77,9 +73,7 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
             colorBlendMode: BlendMode.darken,
           ),
           ListView(
-
             children: [
-
               Padding( padding: EdgeInsets.all( 15.0 ) ),
               Container(
                 width: 20.0,
@@ -89,10 +83,8 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                   alignment: Alignment.center,
                   child: GestureDetector(
                     onTap: () {
-
                       setState(() => showMonday=!showMonday);
                     },
-
                     child: new ShadowText(
                       "MONDAY",
                       style: Theme.of(context).textTheme.display3,
@@ -106,107 +98,109 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                 color: Colors.black.withOpacity(.7),
                 child: Column(
                   children: <Widget>[
+                    Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "BREAKFAST",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' BREAKFAST: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Egg muffins with Cheddar cheese, spinach, and sun-dried tomatoes',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Roast turkey, cucumber, and cheese roll-ups         ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "LUNCH",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' LUNCH: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Spiced cauliflower soup with bacon pieces or tofu cubes',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "DINNER",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' DINNER: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Garlic and herb buttered shrimp with zucchini noodles',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
 
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Sticks of celery and pepper with guacamole       ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
@@ -236,12 +230,10 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                 width: 20.0,
                 height: 60.0,
                 color: Colors.grey.withOpacity(.7),
-
                 child: Align(
                   alignment: Alignment.center,
                   child: GestureDetector(
                     onTap: () {
-
                       setState(() => showTuesday=!showTuesday);
                     },
                     child: ShadowText(
@@ -257,19 +249,23 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                 color: Colors.black.withOpacity(.7),
                 child: Column(
                   children: <Widget>[
+                    Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "BREAKFAST",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
 
                       TextSpan(
 
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' BREAKFAST: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Scrambled eggs on a bed of sautéed greens with pumpkin seeds  ',
                               style: TextStyle( fontSize: 16, color: Colors.white ) ),
@@ -278,86 +274,86 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Smoothie with almond milk, nut butter, chia seeds, and spinach ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "LUNCH",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' LUNCH: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Chicken mayonnaise salad with cucumber, avocado, tomato, almonds, and onion',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "DINNER",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' DINNER: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Beef stew made with mushrooms, onions, celery, herbs, and beef broth',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Olives                                                                           ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
@@ -407,107 +403,108 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                 color: Colors.black.withOpacity(.7),
                 child: Column(
                   children: <Widget>[
+                    Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "BREAKFAST",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' BREAKFAST: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Omelet with mushrooms, broccoli, and peppers',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Slices of cheese and bell peppers                          ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "LUNCH",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' LUNCH: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Avocado and egg salad with onion and spices, served in lettuce cups',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "DINNER",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' DINNER: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Cajun spiced chicken breast with cauliflower rice and Brussels sprout salad',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Nuts                                                                                   ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
@@ -541,7 +538,6 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                   alignment: Alignment.center,
                   child: GestureDetector(
                     onTap: () {
-
                       setState(() => showThursday=!showThursday);
                     },
                     child: ShadowText(
@@ -557,107 +553,108 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                 color: Colors.black.withOpacity(.7),
                 child: Column(
                   children: <Widget>[
+                    Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "BREAKFAST",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' BREAKFAST: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Smoothie containing almond milk, nut butter, spinach, chia seeds, and protein powder',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: '2 boiled eggs                                                               ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "LUNCH",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' LUNCH: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Shrimp and avocado salad with tomatoes, feta cheese, herbs, lemon juice, and olive oil',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "DINNER",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' DINNER: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Garlic butter steak with mushrooms and asparagus',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Flax crackers with cheese                                                     ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
@@ -691,7 +688,6 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                   alignment: Alignment.center,
                   child: GestureDetector(
                     onTap: () {
-
                       setState(() => showFriday=!showFriday);
                     },
                     child: ShadowText(
@@ -707,107 +703,108 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                 color: Colors.black.withOpacity(.7),
                 child: Column(
                   children: <Widget>[
+                    Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "BREAKFAST",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' BREAKFAST: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: '2 eggs, fried in butter, with avocado and blackberries              ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: ' Slices of cheese and bell peppers                                         ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "LUNCH",
+                          style: TextStyle(color: Colors.white.withOpacity(.8),fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' LUNCH: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Grilled salmon with a salad of mixed leafy greens and tomato       ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "DINNER",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' DINNER: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Chicken breast with cauliflower mash and green beans        ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Slices of cheese and bell peppers                             ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
@@ -857,107 +854,108 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                 color: Colors.black.withOpacity(.7),
                 child: Column(
                   children: <Widget>[
+                    Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "BREAKFAST",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' BREAKFAST: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Scrambled eggs with jalapeños, green onions, and tomatoes sprinkled with sunflower seeds',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Celery sticks with almond butter dip                       ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "LUNCH",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' LUNCH: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Tuna salad with tomatoes and avocado plus macadamia nuts   ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "DINNER",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' DINNER: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Pork chops with nonstarchy vegetables of choice            ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'A handful of berries and nuts                                ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
@@ -991,7 +989,6 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                   alignment: Alignment.center,
                   child: GestureDetector(
                     onTap: () {
-
                       setState(() => showSunday=!showSunday);
                     },
                     child: ShadowText(
@@ -1007,82 +1004,84 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                 color: Colors.black.withOpacity(.7),
                 child: Column(
                   children: <Widget>[
+                    Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "BREAKFAST",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' BREAKFAST: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Yogurt with keto-friendly granola                                      ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Sugar-free turkey jerky                                            ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "LUNCH",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' LUNCH: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Grass-fed beef burger (no bun) with guacamole, tomato, and kale salad   ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "DINNER",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' DINNER: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'Stir-fried chicken, broccoli, mushrooms, and peppers, with homemade satay sauce',
                               style: TextStyle( fontSize: 16, color: Colors.white ) ),
@@ -1091,23 +1090,23 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SNACK",
+                          style: TextStyle(color: Colors.grey,fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
-
                       TextSpan(
-
                         // default text style
                         children: <TextSpan>[
-
-                          TextSpan( text: ' SNACK: ',
-                              style: TextStyle( fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent,
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18 ) ),
                           TextSpan(
                               text: 'An egg and vegetable muffin                                             ',
-                              style: TextStyle( fontSize: 16, color: Colors.white ) ),
-
+                              style: TextStyle( fontSize: 22, color: Colors.white ) ),
                         ],
                       ),
                     ),
@@ -1134,12 +1133,10 @@ class _WeightLossDietRoute extends State<WeightLossDietRoute> {
                   :
               Row(),
             ],
-
           ),
         ], ),
     );
   }
-
 }
 _launchURL() async {
   const url = 'https://www.google.com/';

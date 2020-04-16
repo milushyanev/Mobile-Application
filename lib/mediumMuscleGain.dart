@@ -128,35 +128,62 @@ class _MediumMuscleGainRoute extends State<MediumMuscleGainRoute> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "BACK",
+                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
                       TextSpan(
                         // default text style
                         children: <TextSpan>[
 
-                          TextSpan(text: ' BACK: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
                           TextSpan(text: 'Pull Ups, Lat Pulldowns, Bent-Over Barbell Rows, Seated Cable Rows - 12, 10, 8, 6, 4 (each) ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SHOULDERS",
+                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
                       TextSpan(
                         // default text style
                         children: <TextSpan>[
 
-                          TextSpan(text: ' SHOULDERS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
                           TextSpan(text: 'Behind Head Push Press, Seated Dumbbell Overhead Press,- 12, 10, 8 ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
                     ),Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "BICEPS",
+                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
                       TextSpan(
                         // default text style
                         children: <TextSpan>[
 
-                          TextSpan(text: ' BICEPS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
                           TextSpan(text: 'Curls, Cable Rope Hammer Curl - 12, 12, 10, 8 (each)', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
@@ -210,35 +237,62 @@ class _MediumMuscleGainRoute extends State<MediumMuscleGainRoute> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "CHEST",
+                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
                       TextSpan(
                         // default text style
                         children: <TextSpan>[
 
-                          TextSpan(text: ' CHEST: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
                           TextSpan(text: 'Straight Bar Bench Press, Dumbbell Bench Press, Bent Forward Cable crossover - 12, 10, 8, 6, 4 (each)   ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SHOULDERS",
+                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
                       TextSpan(
                         // default text style
                         children: <TextSpan>[
 
-                          TextSpan(text: ' SHOULDERS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
                           TextSpan(text: 'Seated Dumbbell Overhead Press - 15, 12, 12, 10  ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
                     ),Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "TRICEPS",
+                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
                       TextSpan(
                         // default text style
                         children: <TextSpan>[
 
-                          TextSpan(text: ' TRICEPRS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
                           TextSpan(text: 'Lying Triceps Extensions, Lateral Head with V Bar - 12, 12, 10 ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
@@ -290,24 +344,42 @@ class _MediumMuscleGainRoute extends State<MediumMuscleGainRoute> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "LEGS",
+                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
                       TextSpan(
                         // default text style
                         children: <TextSpan>[
 
-                          TextSpan(text: ' LEGS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
                           TextSpan(text: 'Squads, Leg Press, Walking Lunge, Single Leg Curl(back), Glute Hamstrings Raise - 12, 10, 8, 6, 4(each) ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "TRAPEZIUS",
+                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
                       TextSpan(
                         // default text style
                         children: <TextSpan>[
 
-                          TextSpan(text: ' TRAPEZIUS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
                           TextSpan(text: 'Shrugs, Upright Rows - 12, 10 , 8, 6 (each) ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
@@ -358,12 +430,21 @@ class _MediumMuscleGainRoute extends State<MediumMuscleGainRoute> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "SHOULDERS",
+                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
                       TextSpan(
                         // default text style
                         children: <TextSpan>[
 
-                          TextSpan(text: ' SHOULDERS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
                           TextSpan(text: 'Seated Dumbbell Lateral Raise, Behind Head Push Press, Seated Dumbbell Overhead Press, Cable Cross-over Reverse Fly - 12, 12, 10, 8 (each) ', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
@@ -414,24 +495,42 @@ class _MediumMuscleGainRoute extends State<MediumMuscleGainRoute> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "TRICEPS",
+                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
                       TextSpan(
                         // default text style
                         children: <TextSpan>[
 
-                          TextSpan(text: ' TRICEPS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
                           TextSpan(text: 'Lying Triceps Extensions, Triceps Dips, Lateral Head with V Bar, One-Arm Overhead Extensions -  12, 10, 10, 8 (each)', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
                       ),
                     ),
                     Padding( padding: EdgeInsets.all( 10.0 ) ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Text(
+                          "BICEPS",
+                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    Padding( padding: EdgeInsets.all( 5.0 ) ),
                     const Text.rich(
                       TextSpan(
                         // default text style
                         children: <TextSpan>[
 
-                          TextSpan(text: ' BICEPS: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.redAccent,fontSize: 26)),
                           TextSpan(text: 'Standing Barbell Curls, Curls, Cable Rope Hammer Curl- 12, 12, 10, 8 (each)', style: TextStyle(fontSize:24,color:Colors.white)),
 
                         ],
