@@ -61,7 +61,7 @@ class _MediumMuscleGainRoute extends State<MediumMuscleGainRoute> {
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
 
-          title: new Text( "EASY MUSCLE GAIN WORKOUT",style: TextStyle(color: Colors.white,fontSize: 20,fontStyle: FontStyle.italic) )
+          title: new Text( "MEDIUM MUSCLE GAIN WORKOUT",style: TextStyle(color: Colors.white,fontSize: 20,fontStyle: FontStyle.italic) )
       ),
       body: new Stack(
 

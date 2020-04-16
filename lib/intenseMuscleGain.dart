@@ -61,7 +61,7 @@ class _IntenseMuscleGainRoute extends State<IntenseMuscleGainRoute> {
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
 
-          title: new Text( "EASY MUSCLE GAIN WORKOUT",style: TextStyle(color: Colors.white,fontSize: 20,fontStyle: FontStyle.italic) )
+          title: new Text( "INTENSE MUSCLE GAIN WORKOUT",style: TextStyle(color: Colors.white,fontSize: 20,fontStyle: FontStyle.italic) )
       ),
       body: new Stack(
 

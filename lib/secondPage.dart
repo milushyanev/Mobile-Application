@@ -12,8 +12,7 @@ import 'package:flutter_app/muscleGainDiet.dart';
 import 'package:flutter_app/weightLossDiet.dart';
 import 'profilePage.dart';
 import 'resourcesPage.dart';
-import 'secondPage.dart';
-import 'workoutsPage.dart';
+import 'progressPage.dart';
 import 'package:flutter_app/intenseMuscleGain.dart';
 import 'package:flutter_app/mediumMuscleGain.dart';
 import 'dart:ui' as ui;
@@ -81,7 +80,7 @@ class SecondRoute extends StatelessWidget{
 
 
                   children: <Widget>[
-
+                    Padding(padding: EdgeInsets.all(10.0)),
                     Card(
                       color:Colors.white.withOpacity(.9),
                       child: Column(
@@ -352,7 +351,7 @@ class SecondRoute extends StatelessWidget{
                   onTap: ()=>{
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => WorkoutRoute()),
+                      MaterialPageRoute(builder: (context) => ProgressRoute()),
                     ),},
                 ),
               ),
