@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/easyMuscleGain.dart';
-import 'package:flutter_app/hydratitionPage.dart';
+import 'package:flutter_app/hydrationPage.dart';
 import 'package:flutter_app/easyLeanBodyPage.dart';
 import 'package:flutter_app/intenseLeanBodyPage.dart';
 import 'package:flutter_app/mediumLeanBodyPage.dart';
@@ -325,7 +325,7 @@ class SecondRoute extends StatelessWidget{
                   onTap: ()=>{
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HydratitionRoute()),
+                      MaterialPageRoute(builder: (context) => HydrationRoute()),
                     ),},
                 ),
               ),
