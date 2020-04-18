@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'dart:ui' as ui;
-void main() {
-  runApp(new MaterialApp(
-    home: new EasyWeightLossRoute(),
-  ));
-}
-
+import 'package:url_launcher/url_launcher.dart';
+import 'package:numberpicker/numberpicker.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_app/weightLossDiet.dart';
+import 'package:flutter_app/hydrationPage.dart';
+import 'package:flutter/rendering.dart';
+import 'resourcesPage.dart';
 class ShadowText extends StatelessWidget {
   ShadowText(this.data, { this.style }) : assert(data != null);
 
@@ -34,8 +33,6 @@ class ShadowText extends StatelessWidget {
     );
   }
 }
-
-
 class EasyWeightLossRoute extends StatefulWidget {
   EasyWeightLossRoute();
   @override
@@ -43,10 +40,52 @@ class EasyWeightLossRoute extends StatefulWidget {
 }
 
 class _EasyWeightLossRoute extends State<EasyWeightLossRoute> {
+  int _currentIntValue = 1;
+  _showIntegerDialog() async {
+    await showDialog<int>(
+      context: context,
+      builder: (BuildContext context) {
+        return new NumberPickerDialog.integer(
+          minValue: 1,
+          maxValue: 5,
+          step: 1,
+          initialIntegerValue: _currentIntValue,
+        );
+      },
+    ).then(_handleValueChangedExternally);
+  }
 
-  bool showMWD=false;
-  bool showTTH=false;
-  @override
+  _handleValueChangedExternally(num value) {
+    if (value != null) {
+      if (value is int) {
+        setState(() => _currentIntValue = value);
+
+
+      }
+    }
+  }
+
+  var list=['PREVIEW','BACK','CHEST','SHOULDERS','LEGS' ];
+  var list1=['Here is a random Preview of some of the muscle group exercises','Lat Pulldowns - 4 series x 15 reps',
+    'Dumbbell Bench Press - 4 x 15.',
+    'Seated Dumbbell Lateral Raise - 4 x 15.',
+    'Squads- 4 x 15.'];
+  var listDay=['ALL MUSCLE GROUP WORKOUT',
+    'CARDIO AND PLIABILITY',
+    'ALL MUSCLE GROUP WORKOUT',
+    'CARDIO AND PLIABILITY',
+    'ALL MUSCLE GROUP WORKOUT'];
+  var listDayEx=['Lateral Pulldowns - 4 series x 15 reps. Dumbbell Bench Press - 4 x 15. Seated Dumbbell Lateral Raise - 4 x 15. Cable Cross-over Reverse Fly- 4 x 15. Squads- 4 x 15. Curls - 3 x 15.',
+    'Increase cardio to 90 minutes & Pliability for the whole body to 30 minutes, ABS to minimum 80.',
+    'Lateral Pulldowns - 4 series x 15 reps. Dumbbell Bench Press - 4 x 15. Seated Dumbbell Lateral Raise - 4 x 15. Cable Cross-over Reverse Fly- 4 x 15. Squads- 4 x 15. Curls - 3 x 15.',
+    'Increase cardio to 90 minutes & Pliability for the whole body to 30 minutes, ABS to minimum 80.',
+    'Lateral Pulldowns - 4 series x 15 reps. Dumbbell Bench Press - 4 x 15. Seated Dumbbell Lateral Raise - 4 x 15. Cable Cross-over Reverse Fly- 4 x 15. Squads- 4 x 15. Curls - 3 x 15.',
+  ];
+
+  Color gradientStart = Colors.grey; //Change start gradient color here
+  Color gradientEnd = Colors.black;
+  int _index = 0;
+
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
@@ -57,407 +96,235 @@ class _EasyWeightLossRoute extends State<EasyWeightLossRoute> {
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
 
-          title: new Text( "EASY WEIGHT LOSS WORKOUT",style: TextStyle(color: Colors.white,fontSize: 20,fontStyle: FontStyle.italic) )
+          title: new Text( "Weight Loss Workout",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
       ),
-      body: new Stack(
-
-        fit: StackFit.expand,
-        children: <Widget>[
-
-          new Image(
-            image: AssetImage( "assets/weightLoss.jpg" ),
-            fit: BoxFit.cover,
-            color: Colors.transparent,
-            colorBlendMode: BlendMode.darken,
-          ),
-          ListView(
-
-            children: [
-
-              Padding( padding: EdgeInsets.all( 7.5 ) ),
-              Container(
-                color: Colors.grey.withOpacity(.95),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: const Text.rich(
-                    TextSpan(
-                      // default text style
-                      children: <TextSpan>[
-
-                        TextSpan(text: ' Before Weight Lifting: ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.black,fontSize: 18)),
-                        TextSpan(text: '15 Minutes of Pliability exercises for the whole body, followed with 40 minutes of cardio - preferebly on stepper machine or treadmill..', style: TextStyle(fontSize:18,color:Colors.white)),
-                        TextSpan(text: ' Finish Workout with exercise for ABS (minimum 50 reps)', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.black,fontSize: 18)),
-
-                      ],
-                    ),
-
-                  ),
-
-                ),
-              ),
-              Padding( padding: EdgeInsets.all( 7.5 ) ),
-              Container(
-                color: Colors.grey.withOpacity(.95),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: const Text.rich(
-                    TextSpan(
-                      // default text style
-                      children: <TextSpan>[
-
-                        TextSpan(text: ' Up to 1 Minute Rest after each Series !!! ', style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.black,fontSize: 18)),
-                      ],
-                    ),
-
-                  ),
-
-                ),
-              ),
-              Padding( padding: EdgeInsets.all( 15.0 ) ),
-              Container(
-                width: 20.0,
-                height: 60.0,
-                color: Colors.grey.withOpacity(.7),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: GestureDetector(
-                    onTap: () {
-
-                      setState(() => showMWD=!showMWD);
-                    },
-
-                    child: new ShadowText(
-                      "MONDAY",
-                      style: Theme.of(context).textTheme.display3,
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 20.0,
-                height: 60.0,
-                color: Colors.grey.withOpacity(.7),
-
-                child: Align(
-                  alignment: Alignment.center,
-                  child: GestureDetector(
-                    onTap: () {
-
-                      setState(() => showMWD=!showMWD);
-                    },
-                    child: ShadowText(
-                      "WEDNESDAY",
-                      style: Theme.of(context).textTheme.display3,
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 20.0,
-                height: 60.0,
-                color: Colors.grey.withOpacity(.7),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: GestureDetector(
-                    onTap: () {
-
-                      setState(() => showMWD=!showMWD);
-                    },
-                    child: ShadowText(
-                      "FRIDAY",
-                      style: Theme.of(context).textTheme.display3,
-                    ),
-                  ),
-                ),
-              ),
-              Padding( padding: EdgeInsets.all( 10.0 ) ),
-              showMWD ?
-              Container(
-
-                color: Colors.black.withOpacity(.7),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+      body:
+      Container(
+        decoration: new BoxDecoration(
+          color: Colors.black.withOpacity(.8),
+        ),
+        child: new Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            ListView(
+              children: <Widget>[
+                new Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Padding( padding: EdgeInsets.all( 10.0 ) ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        child: Text(
-                          "BACK",
-                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
-                        ),
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 5.0 ) ),
-                    const Text.rich(
-                      TextSpan(
-                        // default text style
-                        children: <TextSpan>[
-
-                          TextSpan(text: 'Lat Pulldowns - 4 series x 15 reps             ', style: TextStyle(fontSize:24,color:Colors.white)),
-
-                        ],
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 10.0 ) ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        child: Text(
-                          "CHEST",
-                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
-                        ),
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 5.0 ) ),
-                    const Text.rich(
-                      TextSpan(
-                        // default text style
-                        children: <TextSpan>[
-
-                          TextSpan(text: 'Dumbbell Bench Press - 4 x 15                 ', style: TextStyle(fontSize:24,color:Colors.white)),
-
-                        ],
-                      ),
-                    ),Padding( padding: EdgeInsets.all( 10.0 ) ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        child: Text(
-                          "SHOULDERS",
-                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
-                        ),
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 5.0 ) ),
-                    const Text.rich(
-                      TextSpan(
-                        // default text style
-                        children: <TextSpan>[
-
-                          TextSpan(text: 'Seated Dumbbell Lateral Raise - 4 x 15      ', style: TextStyle(fontSize:24,color:Colors.white)),
-
-                        ],
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 10.0 ) ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        child: Text(
-                          "SHOULDERS",
-                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
-                        ),
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 5.0 ) ),
-                    const Text.rich(
-                      TextSpan(
-                        // default text style
-                        children: <TextSpan>[
-
-                          TextSpan(text: 'Seated Dumbbell Lateral Raise - 4 x 15                                   ', style: TextStyle(fontSize:24,color:Colors.white)),
-
-                        ],
-                      ),
-                    ),Padding( padding: EdgeInsets.all( 10.0 ) ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        child: Text(
-                          "SHOULDERS",
-                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
-                        ),
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 5.0 ) ),
-                    const Text.rich(
-                      TextSpan(
-                        // default text style
-                        children: <TextSpan>[
-
-                          TextSpan(text: 'Cable Cross-over Reverse Fly- 4 x 15        ', style: TextStyle(fontSize:24,color:Colors.white)),
-
-                        ],
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 10.0 ) ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        child: Text(
-                          "LEGS",
-                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
-                        ),
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 5.0 ) ),
-                    const Text.rich(
-                      TextSpan(
-                        // default text style
-                        children: <TextSpan>[
-
-                          TextSpan(text: 'Squads- 4 x 15                                 ', style: TextStyle(fontSize:24,color:Colors.white)),
-
-                        ],
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 10.0 ) ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        child: Text(
-                          "TRICEPS",
-                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
-                        ),
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 5.0 ) ),
-                    const Text.rich(
-                      TextSpan(
-                        // default text style
-                        children: <TextSpan>[
-
-                          TextSpan(text: 'Lateral Head with V Bar- 3 x 15                                 ', style: TextStyle(fontSize:24,color:Colors.white)),
-
-                        ],
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 10.0 ) ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        child: Text(
-                          "BICEPS",
-                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
-                        ),
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 5.0 ) ),
-                    const Text.rich(
-                      TextSpan(
-                        // default text style
-                        children: <TextSpan>[
-
-                          TextSpan(text: 'Lateral Head with V Bar- 3 x 15                                 ', style: TextStyle(fontSize:24,color:Colors.white)),
-
-                        ],
-                      ),
-                    ),
-
-
-
                     Padding(padding: EdgeInsets.all(10.0)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children:<Widget>[
-                        RaisedButton(
-                          color: Colors.red,
-                          onPressed: _launchURL,
-                          child: Text('YouTube Link',style: TextStyle(fontStyle: FontStyle.italic,fontWeight: FontWeight.bold,color: Colors.white,fontSize: 18)),
-                        ),
-
-                      ],
-                    ),
-                    Padding( padding: EdgeInsets.all( 10.0 ) ),
-                  ],
-                ),
-              )
-                  :
-              Row(),
-              Padding( padding: EdgeInsets.all( 20.0 ) ),
-              Container(
-                width: 20.0,
-                height: 60.0,
-                color: Colors.grey.withOpacity(.7),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: GestureDetector(
-                    onTap: () {
-
-                      setState(() => showTTH=!showTTH);
-                    },
-                    child: ShadowText(
-                      "TUESDAY",
-                      style: Theme.of(context).textTheme.display3,
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 20.0,
-                height: 60.0,
-                color: Colors.grey.withOpacity(.7),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: GestureDetector(
-                    onTap: () {
-
-                      setState(() => showTTH=!showTTH);
-                    },
-                    child: ShadowText(
-                      "THURSDAY",
-                      style: Theme.of(context).textTheme.display3,
-                    ),
-                  ),
-                ),
-              ),
-              Padding( padding: EdgeInsets.all( 10.0 ) ),
-              showTTH ?
-              Container(
-
-                color: Colors.black.withOpacity(.7),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Padding( padding: EdgeInsets.all( 10.0 ) ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        child: Text(
-                          "CARDIO & PLIABILITY",
-                          style: TextStyle(color: Colors.white.withOpacity(1),fontSize: 40,fontStyle: FontStyle.italic),
-                        ),
-                      ),
-                    ),
-                    Padding( padding: EdgeInsets.all( 5.0 ) ),
-
-                    const Text.rich(
-                      TextSpan(
-                        // default text style
-                        children: <TextSpan>[
-
-
-                          TextSpan(text: 'Increase cardio to 90 minutes & Pliability for the whole body to 30 minutes, ABS to minimum 80. ', style: TextStyle(fontSize:24,color:Colors.white)),
-
+                    Card(
+                      color:Colors.white.withOpacity(.9),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Container(
+                            child: const ListTile(
+                              leading: Icon(Icons.fitness_center,size: 50),
+                              title: Text("Pre and Post workout Routine",style: TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic)),
+                              subtitle: Text('15 Minutes of Pliability exercises for the muscle groups stated in current day, followed with 40 minutes of cardio - preferebly on stepper machine or treadmill.  '
+                                  'Finish Workout with exercise for ABS (minimum 50 reps) & Pliability (10-15 min) for current muscle groups used.',
+                                  style: TextStyle(fontStyle: FontStyle.normal,color:Colors.black,fontSize: 16) ),
+                            ),
+                          ),
+                          Padding(padding: EdgeInsets.all(5.0)),
+                          Text("Up to 1 Minute Rest after each Series !!! ", style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.black,fontSize: 22)),
+                          Padding(padding: EdgeInsets.all(5.0)),
                         ],
                       ),
                     ),
                     Padding(padding: EdgeInsets.all(10.0)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children:<Widget>[
-                        RaisedButton(
-                          color: Colors.red,
-                          onPressed: _launchURL,
-                          child: Text('YouTube Link',style: TextStyle(fontStyle: FontStyle.italic,fontWeight: FontWeight.bold,color: Colors.white,fontSize: 18)),
-                        ),
+                    SizedBox(
+                      height: 200,
+                      // card height
+                      child: PageView.builder(
+                        itemCount: 5,
+                        controller: PageController(viewportFraction: 0.7),
+                        onPageChanged: (int index) => setState(() => _index = index),
+                        itemBuilder: (_, i) {
+                          return Transform.scale(
+                            scale: i == _index ? 1 : 0.9,
 
-                      ],
+                            child: ListView(
+                              children: <Widget>[
+                                Card(
+                                  color: Colors.white.withOpacity(.8),
+                                  elevation: 6,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+
+                                    children: <Widget>[
+                                      Container(
+                                        margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                                        child: Text("${list[i]}",
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontStyle: FontStyle.italic,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 24.0)),
+                                      ),
+                                      Container(
+                                          margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                                          child: Text(" ${list1[i]}",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 22.0))),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
                     ),
-                    Padding( padding: EdgeInsets.all( 10.0 ) ),
-                  ],
+                    Card(
+                      color:Colors.white.withOpacity(.9),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+
+                        children: <Widget>[
+                          Container(
+                            child: const ListTile(
+                              leading: Icon(Icons.fitness_center),
+                              title: Text('Nothing is Impossible'),
+                              subtitle: Text('"Choose your workout day from the day picker."'),
+                            ),
+                          ),
+                          ButtonBar(
+                            children: <Widget>[
+                              Container(
+                                child: Column(
+                                  children: <Widget>[
+                                    Container(child:
+                                    Text( "Current day: $_currentIntValue       ",style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.black,fontSize: 20) )),
+                                  ],
+                                ),),
+                              FlatButton(
+                                child:  Text( "DAY PICKER            ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18)),
+                                onPressed: () => _showIntegerDialog(),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Card(
+                      color:Colors.white.withOpacity(.9),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Container(
+                            child: const ListTile(
+
+                              leading: Icon(Icons.today,size: 50),
+                              title: Text("WEIGHT LOSS WORKOUT"),
+                              subtitle: Text('"Please follow the order of exercises provided"'),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Container(
+                              child: Text(
+                                "${listDay[_currentIntValue-1]}",
+                                style: TextStyle(color: Colors.black.withOpacity(1),fontSize: 24,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                          Padding(padding: EdgeInsets.all(10.0)),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Container(
+                              child: Text(
+                                "${listDayEx[_currentIntValue-1]}",
+                                style: TextStyle(color: Colors.black.withOpacity(1),fontSize: 22,fontStyle: FontStyle.italic),textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                          Padding(padding: EdgeInsets.all(20.0)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children:<Widget>[
+                              RaisedButton(
+                                color: Colors.red,
+                                onPressed: _launchURL,
+                                child: Text('YouTube Link',style: TextStyle(fontStyle: FontStyle.italic,fontWeight: FontWeight.bold,color: Colors.white,fontSize: 18)),
+                              ),
+                            ],
+                          ),
+                          Padding(padding: EdgeInsets.all(20.0)),
+                        ],
+                      ),
+                    ),
+                  ],),
+              ],
+            ),
+          ],
+        ),
+      ),
+      endDrawer: Drawer(
+        child: Container(
+          color:Colors.grey,
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              Container(
+                height:100,
+                child: DrawerHeader(
+                  child: Text( "GO TO ...",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) ),
+                  decoration: BoxDecoration(
+                    color:Colors.black.withOpacity(.8),
+                  ),
+                ),
+              ),
+
+              Card(
+                color: Colors.white.withOpacity(.8),
+                child: ListTile(
+                  leading: Icon(Icons.local_drink),
+                  title: Text('HYDRATION PAGE'),
+                  subtitle: Text('Go to the Hydration Info page'),
+                  onTap: ()=>{
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HydrationRoute()),
+                    ),},
+                ),
+              ),
+              Card(
+                color: Colors.white.withOpacity(.8),
+                child: ListTile(
+                  leading: Icon(Icons.fastfood),
+                  title: Text('WEIGHT LOSS DIET'),
+                  subtitle: Text('Go to Muscle Gain Diet Page'),
+                  onTap: ()=>{
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => WeightLossDietRoute()),
+                    ),},
+                ),
+              ),
+              Card(
+                color: Colors.white.withOpacity(.8),
+                child: ListTile(
+                  leading: Icon(Icons.info),
+                  title: Text('RESOURSES PAGE'),
+                  subtitle: Text('Go to the resourse page'),
+                  onTap: ()=>{
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ResourcesRoute()),
+                    ),},
                 ),
               )
-                  :
-              Row(),
             ],
-
           ),
-        ], ),
+        ),
+      ),
     );
   }
-
 }
 _launchURL() async {
   const url = 'https://www.youtube.com/';
