@@ -87,7 +87,7 @@ class _HydrationRoute extends State<HydrationRoute> {
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
 
-          title: new Text( "Welcome to Modern Hydration Life",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
+          title: new Text( "Proper Hydration",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
       ),
       body:
       Container(

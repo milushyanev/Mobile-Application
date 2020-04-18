@@ -1,9 +1,11 @@
 import 'dart:ui' as ui;
+import 'package:url_launcher/url_launcher.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/muscleGainDiet.dart';
+import 'package:flutter_app/hydrationPage.dart';
 import 'package:flutter/rendering.dart';
 import 'resourcesPage.dart';
-import 'progressPage.dart';
 class ShadowText extends StatelessWidget {
   ShadowText(this.data, { this.style }) : assert(data != null);
 
@@ -39,7 +41,6 @@ class EasyMuscleGainRoute extends StatefulWidget {
 
 class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
   int _currentIntValue = 1;
-  double _ounceH2O=45;
   _showIntegerDialog() async {
     await showDialog<int>(
       context: context,
@@ -51,30 +52,34 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
           initialIntegerValue: _currentIntValue,
         );
       },
-    ).then(_handleValueChangedExternally).then(_ounceCalc);
+    ).then(_handleValueChangedExternally);
   }
 
   _handleValueChangedExternally(num value) {
     if (value != null) {
       if (value is int) {
         setState(() => _currentIntValue = value);
-        setState(() => _ounceH2O=(value/2));
 
-      }
-    }
-  }
-  _ounceCalc(num _testingResult) {
-    if (_testingResult != null) {
-      if (_testingResult is double) {
-        setState(() => _testingResult=(_currentIntValue/~2) );
       }
     }
   }
 
   var list=['PREVIEW','BACK','CHEST','TRICEPS','LEGS' ];
-  var list1=['Here is a random Preview of some of the muscle group exercises','Lateral Pulldowns, Bent-Over Barbell Rows,Seated Cable Rows','Straight Bar Bench Press, Dumbbell Bench Press, Bent Forward Cable crossover','Lying Triceps Extensions, Triceps Dips, Lateral Head with V Bar, One-Arm Overhead Extensions','Squads, Leg Press, Walking Lunge, Single Leg Curl(back), Glute Hamstrings Raise'];
-  var listDay=['BACK SHOULDERS BICEPS', 'testing1'];
-  var listDayEx=['Lateral Pulldowns, Bent-Over Barbell Rows,Seated Cable Rows - 12, 10, 8, 6 (each) Cable Cross-over Reverse Fly- 12, 10, 8  Curls- 12, 12, 10, 8 ','testingE1'];
+  var list1=['Here is a random Preview of some of the muscle group exercises','Lateral Pulldowns, Bent-Over Barbell Rows,Seated Cable Rows',
+    'Straight Bar Bench Press, Dumbbell Bench Press, Bent Forward Cable crossover','Lying Triceps Extensions, Triceps Dips, Lateral Head with V Bar, One-Arm Overhead Extensions',
+    'Squads, Leg Press, Walking Lunge, Single Leg Curl(back), Glute Hamstrings Raise'];
+  var listDay=['BACK SHOULDERS BICEPS',
+    'CHEST SHOULDERS TRICEPS',
+    'LEGS TRAPEZIUS',
+    'SHOULDERS',
+    'TRICEPS BICEPS'];
+  var listDayEx=['Lateral Pulldowns, Bent-Over Barbell Rows,Seated Cable Rows - 12, 10, 8, 6 (each). Cable Cross-over Reverse Fly- 12, 10, 8.  Curls- 12, 12, 10, 8. ',
+    'Straight Bar Bench Press, Dumbbell Bench Press, Bent Forward Cable crossover -12, 10, 8, 6 (each). Seated Dumbbell Overhead Press - 15, 12, 12, 10. Lateral Head with V Bar - 12, 12, 10.',
+    'Squads, Leg Press, Walking Lunge, Single Leg Curl(back), Glute Hamstrings Raise - 12, 10, 8, 6  (each). Shrugs, Upright Rows - 12, 10, 8 (each).',
+    'Seated Dumbbell Lateral Raise, Behind Head Push Press, Seated Dumbbell Overhead Press, Cable Cross-over Reverse Fly - 12, 12, 10, 8 (each).',
+    'Lying Triceps Extensions, Triceps Dips, Lateral Head with V Bar, One-Arm Overhead Extensions - 12, 12, 10, 8 (each). '
+        'Standing Barbell Curls, Curls, Cable Rope Hammer Curl- 12, 12, 10 (each).'
+        ];
   Color gradientStart = Colors.grey; //Change start gradient color here
   Color gradientEnd = Colors.black;
   int _index = 0;
@@ -89,7 +94,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
 
-          title: new Text( "Welcome to Modern Fitness Life",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
+          title: new Text( "Muscle Gain Workout",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
       ),
       body:
       Container(
@@ -112,14 +117,14 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                         children: <Widget>[
                           Container(
                             child: const ListTile(
-
                               leading: Icon(Icons.fitness_center,size: 50),
-                              title: Text("Pre and Post workout Routine",style: TextStyle(color: Colors.black,fontSize: 22,fontStyle: FontStyle.italic)),
-                              subtitle: Text('15 Minutes of Pliability exercises for the muscle groups stated in current day, followed with 30 minutes of cardio - preferebly on stepper machine or treadmill.  Finish Workout with exercise for ABS (minimum 50 reps) & Pliability (10-15 min) for current muscle groups used.',style: TextStyle(fontStyle: FontStyle.normal,color:Colors.black,fontSize: 14) ),
-
+                              title: Text("Pre and Post workout Routine",style: TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic)),
+                              subtitle: Text('15 Minutes of Pliability exercises for the muscle groups stated in current day, followed with 30 minutes of cardio - preferebly on stepper machine or treadmill.  '
+                                  'Finish Workout with exercise for ABS (minimum 50 reps) & Pliability (10-15 min) for current muscle groups used.',
+                                  style: TextStyle(fontStyle: FontStyle.normal,color:Colors.black,fontSize: 16) ),
                             ),
                           ),
-
+                          Padding(padding: EdgeInsets.all(5.0)),
                         ],
                       ),
                     ),
@@ -177,40 +182,27 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
 
                         children: <Widget>[
                           Container(
-
                             child: const ListTile(
-
                               leading: Icon(Icons.fitness_center),
-                              title: Text('MUSCLE GAIN WORKOUTS'),
-                              subtitle: Text('"No Pain, No Gain."'),
+                              title: Text('NO PAIN NO GAIN'),
+                              subtitle: Text('"Choose your workout day from the day picker."'),
                             ),
                           ),
                           ButtonBar(
                             children: <Widget>[
                               Container(
                                 child: Column(
-                                  //crossAxisAlignment: CrossAxisAlignment.end,
                                   children: <Widget>[
                                     Container(child:
-                                    Text( "$_currentIntValue  lbs ",style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.black,fontSize: 20) )),
+                                    Text( "Current day: $_currentIntValue       ",style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.black,fontSize: 20) )),
                                   ],
                                 ),),
                               FlatButton(
-                                child:  Text( "DAY PICKER",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18)),
+                                child:  Text( "DAY PICKER            ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18)),
                                 onPressed: () => _showIntegerDialog(),
                               ),
-                              Container(
-                                child: Column(
-                                  //crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: <Widget>[
-                                    Container(child:
-                                    Text( "$_ounceH2O oz",style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.blue,fontSize: 22) )),
-                                  ],
-                                ),),
-                              Text("Water",style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color:Colors.black,fontSize: 18) ),
                             ],
                           ),
-
                         ],
                       ),
                     ),
@@ -222,9 +214,9 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                           Container(
                             child: const ListTile(
 
-                              leading: Icon(Icons.local_drink,size: 50),
-                              title: Text("Proper Hydration"),
-                              subtitle: Text('"Minimum 1/2 of the current Body Weight"'),
+                              leading: Icon(Icons.today,size: 50),
+                              title: Text("EASY MUSCLE GAIN WORKOUT"),
+                              subtitle: Text('"Please follow the order of exercises provided"'),
                             ),
                           ),
                           Align(
@@ -232,20 +224,32 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
                             child: Container(
                               child: Text(
                                 "${listDay[_currentIntValue-1]}",
-                                style: TextStyle(color: Colors.black.withOpacity(1),fontSize: 24,fontStyle: FontStyle.italic),
+                                style: TextStyle(color: Colors.black.withOpacity(1),fontSize: 24,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
+                          Padding(padding: EdgeInsets.all(10.0)),
                           Align(
                             alignment: Alignment.center,
                             child: Container(
                               child: Text(
                                 "${listDayEx[_currentIntValue-1]}",
-                                style: TextStyle(color: Colors.black.withOpacity(1),fontSize: 22,fontStyle: FontStyle.italic),
+                                style: TextStyle(color: Colors.black.withOpacity(1),fontSize: 22,fontStyle: FontStyle.italic),textAlign: TextAlign.center,
                               ),
                             ),
                           ),
-
+                          Padding(padding: EdgeInsets.all(20.0)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children:<Widget>[
+                              RaisedButton(
+                                color: Colors.red,
+                                onPressed: _launchURL,
+                                child: Text('YouTube Link',style: TextStyle(fontStyle: FontStyle.italic,fontWeight: FontWeight.bold,color: Colors.white,fontSize: 18)),
+                              ),
+                            ],
+                          ),
+                          Padding(padding: EdgeInsets.all(20.0)),
                         ],
                       ),
                     ),
@@ -255,13 +259,7 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
           ],
         ),
       ),
-
-
       endDrawer: Drawer(
-
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
         child: Container(
           color:Colors.grey,
           child: ListView(
@@ -271,22 +269,36 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
               Container(
                 height:100,
                 child: DrawerHeader(
-                  child: Text( "MENU",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) ),
+                  child: Text( "GO TO ...",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) ),
                   decoration: BoxDecoration(
                     color:Colors.black.withOpacity(.8),
                   ),
                 ),
               ),
+
               Card(
                 color: Colors.white.withOpacity(.8),
                 child: ListTile(
-                  leading: Icon(Icons.thumb_up),
-                  title: Text('PROGRESS PAGE'),
-                  subtitle: Text('Go to the progress page'),
+                  leading: Icon(Icons.local_drink),
+                  title: Text('HYDRATION PAGE'),
+                  subtitle: Text('Go to the Hydration Info page'),
                   onTap: ()=>{
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ProgressRoute()),
+                      MaterialPageRoute(builder: (context) => HydrationRoute()),
+                    ),},
+                ),
+              ),
+              Card(
+                color: Colors.white.withOpacity(.8),
+                child: ListTile(
+                  leading: Icon(Icons.fastfood),
+                  title: Text('MUSCLE GAIN DIET'),
+                  subtitle: Text('Go to Muscle Gain Diet Page'),
+                  onTap: ()=>{
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MuscleGainDietRoute()),
                     ),},
                 ),
               ),
@@ -306,10 +318,15 @@ class _EasyMuscleGainRoute extends State<EasyMuscleGainRoute> {
             ],
           ),
         ),
-
-
       ),
-
     );
+  }
+}
+_launchURL() async {
+  const url = 'https://www.youtube.com/';
+  if (await canLaunch( url )) {
+    await launch( url );
+  } else {
+    throw 'Could not launch $url';
   }
 }
