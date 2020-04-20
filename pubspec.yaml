@@ -21,6 +21,10 @@ dependencies:
 
     sdk: flutter
   flutter_linkify: ^3.1.0
+  firebase_core: ^0.4.0+9
+  firebase_auth: ^0.14.0+5
+  cloud_firestore: 0.13.5
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -28,6 +32,7 @@ dependencies:
   url_launcher: ^5.4.0
   numberpicker: ^0.1.6
   flutter_launcher_icons: ^0.7.4
+  rflutter_alert: ^1.0.3
 
 dev_dependencies:
   flutter_test:
@@ -54,13 +59,8 @@ flutter:
    assets:
     - assets/plogo.jpg
     - assets/example.jpg
-    - dailyMealPlans.jpg
     - leanBodyDiet.jpg
     - weightLossDiet.jpg
-    - muscleGain.jpg
-    - weightLoss.jpg
-    - workoutPage.jpg
-    - leanBodyWorkout.jpg
     - icon.png
 
     #- images/a_dot_ham.jpeg
