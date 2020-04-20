@@ -1,10 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/material.dart';
-import 'main.dart';
+import 'package:intl/intl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path/path.dart';
 
 class ProfileRoute extends StatefulWidget {
   ProfileRoute();
@@ -17,51 +19,53 @@ class _ProfileRoute extends State<ProfileRoute> {
   bool error = false;
 
   String errorMessage="";
+  var user;
+   static  String firstName = "";
+  static String lastName = "";
+  String age = "";
+   static String email = "";
+   static int timeStamp=0;
 
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  Future getUserInfo() async {
+    user = await _auth.currentUser();
 
-  var emailEditingController= TextEditingController();
-  var passEditingController= TextEditingController();
-  var firstNameEditingController= TextEditingController();
-  var lastNameEditingController= TextEditingController();
-  var ageEditingController= TextEditingController();
+    await Firestore.instance.collection('users').document(user.uid).get().then((doc){
+
+      if(doc.exists) {
+
+        setState(() {
+          firstName = doc.data['fname'];
+          lastName=doc.data['lname'];
+          age=doc.data['age'];
+          timeStamp=doc.data['timestamp'];
+          email=doc.data['email'];
 
 
-  var card = new Card(
-    color: Colors.white.withOpacity(.7),
-    child: new Column(
-      children: <Widget>[
-        new ListTile(
-          leading: new Icon(Icons.account_box, color: Colors.blueGrey,size: 26.0,),
-          title: new Text("Milush Yanev"
-            ,style: new TextStyle(fontWeight: FontWeight.w700),),
-          subtitle: new Text("Mobile Application Project"),
+        });
+      }
+      else {
+        // document doesn't exist
+      }
+    });
+  }
 
-        ),
-        new Divider(color: Colors.blue,indent: 16.0,),
-        new ListTile(
-          leading: new Icon(Icons.email, color: Colors.blueGrey, size: 26.0,),
-          title: new Text("myanev@cpp.edu"
-            ,style: new TextStyle(fontWeight: FontWeight.w700),),
-        ),
-        new Divider(color: Colors.blue,indent: 16.0,),
-        new ListTile(
-          leading: new Icon(Icons.phone, color: Colors.blueGrey, size: 26.0,),
-          title: new Text("+1-951-316-2882"
-            ,style: new TextStyle(fontWeight: FontWeight.w700),),
-        ),new Divider(color: Colors.blue,indent: 16.0,),
-        new ListTile(
-          leading: new Icon(Icons.add_location, color: Colors.blueGrey, size: 26.0,),
-          title: new Text("Easvale  CA  91752"
-            ,style: new TextStyle(fontWeight: FontWeight.w700),),
-        )
-      ],
-    ),
-  );
+  @override
+  void initState() {
+    getUserInfo();
+
+  }
 
   Widget build(BuildContext context) {
+
+    getUserInfo();
+    var date = DateTime.fromMillisecondsSinceEpoch(timeStamp);
+    var formattedDate = DateFormat.yMMMd().format(date);
+
+    //print(formattedDate);
+
     return new Scaffold(
       appBar: new AppBar(
           leading: IconButton(
@@ -71,34 +75,82 @@ class _ProfileRoute extends State<ProfileRoute> {
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
 
-          title: new Text( "User Profile",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
+          title: new Text( "$firstName`s Profile",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
       ),
       body:
-      Container(
-        decoration: new BoxDecoration(
-          color: Colors.black.withOpacity(.8),
-        ),
-        child: new Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            ListView(
+      Builder(
+        builder:(context)=>
+          Container(
+            decoration: new BoxDecoration(
+              color: Colors.black.withOpacity(.8),
+            ),
+            child: new Stack(
+              fit: StackFit.expand,
               children: <Widget>[
-                Padding(padding: EdgeInsets.all(50.0)),
-                new Container(
+                ListView(
+                  children: <Widget>[
+                    Padding(padding: EdgeInsets.all(50.0)),
+                    new Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          SizedBox(height: 20.0,),
+                          Row(
 
-                ),
-                new Container(
-                  margin: new EdgeInsets.only(left: 10.0, right: 10.0),
-                  color: Colors.white.withOpacity(0.8),
-                  child: new SizedBox(
-                      height: 310.0,
-                      child: card
-                  ),
+                          )
+                        ],
+                      ),
+
+                    ),
+                    new Container(
+                      margin: new EdgeInsets.only(left: 10.0, right: 10.0),
+                      color: Colors.white.withOpacity(0.8),
+                      child: new SizedBox(
+                          height: 310.0,
+                          child: Container(
+                              child: Card(
+
+                                color: Colors.white.withOpacity(.7),
+                                child:  Column(
+                                  children: <Widget>[
+                                    ListTile(
+                                      leading:  Icon(Icons.account_box, color: Colors.blueGrey,size: 26.0,),
+                                      title: Text("$firstName $lastName"
+                                        ,style:  TextStyle(fontWeight: FontWeight.w700),),
+                                      subtitle:  Text("Mobile Application Project"),
+
+                                    ),
+                                     Divider(color: Colors.blue,indent: 16.0,),
+                                     ListTile(
+                                      leading:  Icon(Icons.email, color: Colors.blueGrey, size: 26.0,),
+                                      title:  Text("$email"
+                                        ,style:  TextStyle(fontWeight: FontWeight.w700),),
+                                    ),
+                                     Divider(color: Colors.blue,indent: 16.0,),
+                                     ListTile(
+                                      leading:  Icon(Icons.calendar_view_day, color: Colors.blueGrey, size: 26.0,),
+                                      title:  Text("Account Created on: $formattedDate"
+                                        ,style:  TextStyle(fontWeight: FontWeight.w700),),
+                                    ), Divider(color: Colors.blue,indent: 16.0,),
+                                     ListTile(
+                                      leading:  Icon(Icons.calendar_today, color: Colors.blueGrey, size: 26.0,),
+                                      title:  Text("Age: $age"
+                                        ,style:  TextStyle(fontWeight: FontWeight.w700),),
+                                    )
+                                  ],
+                                ),
+                              ),
+                          )
+                      ),
+
+                    ),
+
+
+                  ],
                 ),
               ],
             ),
-          ],
-        ),
+          ),
       ),
     );
   }

@@ -44,6 +44,7 @@ class LoginPageState extends State<LoginPage> with TickerProviderStateMixin{
   AnimationController _iconAnimationController;
   Animation<double> _iconAnimation;
 
+  @override
   void initState(){
 
     super.initState();
@@ -59,11 +60,19 @@ class LoginPageState extends State<LoginPage> with TickerProviderStateMixin{
     _iconAnimation.addListener(()=>this.setState((){}));
     _iconAnimationController.forward();
 
-
+    setState((){
+      user  =_auth.currentUser();
+      if(user != null)
+        signedIn = true;
+    });
 
   }
+  var user;
+  bool signedIn = false;
   Widget build(BuildContext context){
 
+    //if(signedIn)
+      //Navigator.push(context, MaterialPageRoute(builder: (context) => SecondRoute()));
 
     return new Scaffold(
 
