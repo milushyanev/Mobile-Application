@@ -12,7 +12,6 @@ import 'package:flutter_app/muscleGainDiet.dart';
 import 'package:flutter_app/weightLossDiet.dart';
 import 'profilePage.dart';
 import 'resourcesPage.dart';
-import 'progressPage.dart';
 import 'package:flutter_app/intenseMuscleGain.dart';
 import 'package:flutter_app/mediumMuscleGain.dart';
 import 'dart:ui' as ui;
@@ -342,19 +341,7 @@ class SecondRoute extends StatelessWidget{
                     ),},
                 ),
               ),
-              Card(
-                color: Colors.white.withOpacity(.8),
-                child: ListTile(
-                  leading: Icon(Icons.thumb_up),
-                  title: Text('PROGRESS PAGE'),
-                  subtitle: Text('Go to the progress page'),
-                  onTap: ()=>{
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ProgressRoute()),
-                    ),},
-                ),
-              ),
+
               Card(
                 color: Colors.white.withOpacity(.8),
                 child: ListTile(

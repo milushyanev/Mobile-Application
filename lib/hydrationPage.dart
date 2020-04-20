@@ -1,36 +1,7 @@
-import 'dart:ui' as ui;
 import 'package:numberpicker/numberpicker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'resourcesPage.dart';
-import 'progressPage.dart';
-class ShadowText extends StatelessWidget {
-  ShadowText(this.data, { this.style }) : assert(data != null);
-
-  final String data;
-  final TextStyle style;
-
-  Widget build(BuildContext context) {
-    return new ClipRect(
-      child: new Stack(
-        children: [
-          new Positioned(
-            top: 2.0,
-            left: 2.0,
-            child: new Text(
-              data,
-              style: style.copyWith(color: Colors.red,fontStyle: FontStyle.italic),
-            ),
-          ),
-          new BackdropFilter(
-            filter: new ui.ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
-            child: new Text(data, style: style.copyWith(color: Colors.white,fontStyle: FontStyle.italic)),
-          ),
-        ],
-      ),
-    );
-  }
-}
 class HydrationRoute extends StatefulWidget {
   HydrationRoute();
   @override
@@ -73,8 +44,6 @@ class _HydrationRoute extends State<HydrationRoute> {
   var list=[' PURIFIED WATER: ',' MINERAL WATER: ',' TAP WATER:',' DISTILLED WATER: ','SPRING WATER: ', 'CARBONATED WATER:' ];
   var list1=['It has a fewer number of impurities. It is the BEST for proper hydration according athletes.','Fluoride, chlorine, lead containment. Not recommenced, unless filtered first.','Due to containment of alkalizing minerals, it is a great product for proper hydration.','Stripped out of mineral content. If used it is recommended along with electrolyte suplements','Close to or identical to tap water`s properties, but combined from different sources.','Less oxygen and high carbon dioxide gas containtment. Not a good source for proper hydration.'];
 
-  Color gradientStart = Colors.grey; //Change start gradient color here
-  Color gradientEnd = Colors.black;
   int _index = 0;
 
   Widget build(BuildContext context) {
@@ -249,19 +218,6 @@ class _HydrationRoute extends State<HydrationRoute> {
                   decoration: BoxDecoration(
                     color:Colors.black.withOpacity(.8),
                   ),
-                ),
-              ),
-              Card(
-                color: Colors.white.withOpacity(.8),
-                child: ListTile(
-                  leading: Icon(Icons.thumb_up),
-                  title: Text('PROGRESS PAGE'),
-                  subtitle: Text('Go to the progress page'),
-                  onTap: ()=>{
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ProgressRoute()),
-                    ),},
                 ),
               ),
               Card(
