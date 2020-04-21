@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ResourcesRoute extends StatefulWidget {
   ResourcesRoute();
   @override
   _ResourcesRoute createState() => _ResourcesRoute();
 }
-
 class _ResourcesRoute extends State<ResourcesRoute> {
 
   var card = new Card(
@@ -35,6 +35,14 @@ class _ResourcesRoute extends State<ResourcesRoute> {
           leading: new Icon(Icons.add_location, color: Colors.blueGrey, size: 26.0,),
           title: new Text("Easvale  CA  91752"
             ,style: new TextStyle(fontWeight: FontWeight.w700),),
+        ),
+        new Divider(color: Colors.blue,indent: 16.0,),
+        new ListTile(
+          leading: new Icon(Icons.web, color: Colors.blueGrey, size: 26.0,),
+          title: new Text("GitHub Account"
+            ,style: new TextStyle(fontWeight: FontWeight.w700),),
+          subtitle: new Text("Click to see Profile"),
+          onTap: ()=>_launchURL1(),
         )
       ],
     ),
@@ -50,7 +58,7 @@ class _ResourcesRoute extends State<ResourcesRoute> {
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
 
-          title: new Text( "Info",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
+          title: new Text( "App Info",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
       ),
       body:
       Container(
@@ -70,7 +78,7 @@ class _ResourcesRoute extends State<ResourcesRoute> {
                 margin: new EdgeInsets.only(left: 10.0, right: 10.0),
                 color: Colors.white.withOpacity(0.8),
                 child: new SizedBox( 
-                    height: 310.0, 
+                    height: 400.0,
                     child: card
                   ),
                 ),
@@ -80,5 +88,13 @@ class _ResourcesRoute extends State<ResourcesRoute> {
         ),
       ),
     );
+  }
+}
+_launchURL1() async {
+  const url = 'https://github.com/milushyanev';
+  if (await canLaunch( url )) {
+    await launch( url );
+  } else {
+    throw 'Could not launch $url';
   }
 }
