@@ -10,8 +10,10 @@ import 'package:flutter_app/mediumWeightLossPage.dart';
 import 'package:flutter_app/leanBodyDietPage.dart';
 import 'package:flutter_app/muscleGainDiet.dart';
 import 'package:flutter_app/weightLossDiet.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'profilePage.dart';
 import 'resourcesPage.dart';
+import 'package:flutter_app/main.dart';
 import 'package:flutter_app/intenseMuscleGain.dart';
 import 'package:flutter_app/mediumMuscleGain.dart';
 import 'dart:ui' as ui;
@@ -23,6 +25,8 @@ class ShadowText extends StatelessWidget {
 
   final String data;
   final TextStyle style;
+
+
 
   Widget build(BuildContext context) {
     return new ClipRect(
@@ -48,6 +52,7 @@ class ShadowText extends StatelessWidget {
 
 // ignore: must_be_immutable
 class SecondRoute extends StatelessWidget{
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   Color gradientStart = Colors.grey; //Change start gradient color here
   Color gradientEnd = Colors.black;
   Widget build(BuildContext context) {
@@ -353,6 +358,21 @@ class SecondRoute extends StatelessWidget{
                       context,
                       MaterialPageRoute(builder: (context) => ResourcesRoute()),
                     ),},
+                ),
+              ),
+              Card(
+                color: Colors.white.withOpacity(.8),
+                child: ListTile(
+                  leading: Icon(Icons.rotate_left),
+                  title: Text('Sign Out'),
+                  subtitle: Text('Click to Sign Out'),
+                    onTap: (){
+                      _auth.signOut();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
+
+                    },
                 ),
               ),
             ],

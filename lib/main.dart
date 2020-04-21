@@ -45,7 +45,7 @@ class LoginPageState extends State<LoginPage> with TickerProviderStateMixin{
   Animation<double> _iconAnimation;
 
   @override
-  void initState(){
+ void initState(){
 
     super.initState();
 
@@ -59,13 +59,6 @@ class LoginPageState extends State<LoginPage> with TickerProviderStateMixin{
     );
     _iconAnimation.addListener(()=>this.setState((){}));
     _iconAnimationController.forward();
-
-    setState((){
-      user  =_auth.currentUser();
-      if(user != null)
-        signedIn = true;
-    });
-
   }
   var user;
   bool signedIn = false;

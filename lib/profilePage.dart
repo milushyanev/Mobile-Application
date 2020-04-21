@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:path/path.dart';
+import 'package:flutter_app/main.dart';
 import 'dart:io';
 
 class ProfileRoute extends StatefulWidget {
@@ -16,16 +16,46 @@ class ProfileRoute extends StatefulWidget {
 }
 
 class _ProfileRoute extends State<ProfileRoute> {
+  File _image;
+  @override
 
-    bool error = false;
 
-    String errorMessage="";
+
+
     var user;
     static  String firstName = "";
     static String lastName = "";
     String age = "";
     static String email = "";
     static int timeStamp=0;
+    String image='';
+
+
+
+    Future getImage() async{
+      var image=await ImagePicker.pickImage(source: ImageSource.gallery);
+      setState(() {
+        _image=image;
+        print('Image Path $_image');
+
+      });
+    }
+
+    Future<void> uploadFile(File image) async {
+      StorageReference storageReference = FirebaseStorage.instance
+          .ref( )
+          .child( 'profile/' + user.uid.toString( ) );
+      StorageUploadTask uploadTask = storageReference.putFile( image );
+      await uploadTask.onComplete;
+      storageReference.getDownloadURL( ).then( (fileURL) async {
+        await Firestore.instance.collection( 'users' ).document( user.uid )
+            .updateData( {
+          'img': fileURL,
+        } );
+      } );
+
+
+    }
 
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -40,6 +70,7 @@ class _ProfileRoute extends State<ProfileRoute> {
           age=doc.data['age'];
           timeStamp=doc.data['timestamp'];
           email=doc.data['email'];
+          image=doc.data['img'];
         });
       }
       else {
@@ -52,8 +83,7 @@ class _ProfileRoute extends State<ProfileRoute> {
     getUserInfo();
 
   }
-  File _image;
-  @override
+
 
   Widget build(BuildContext context) {
     getUserInfo();
@@ -61,24 +91,8 @@ class _ProfileRoute extends State<ProfileRoute> {
     var date = DateTime.fromMillisecondsSinceEpoch(timeStamp);
     var formattedDate = DateFormat.yMMMd().format(date);
 
-    Future getImage() async{
-      var image=await ImagePicker.pickImage(source: ImageSource.gallery);
-      setState(() {
-        _image=image;
-        print('Image Path $_image');
 
-      });
-    }
-    Future uploadPic(BuildContext context) async{
-      String fileName = basename(_image.path);
-      StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child(fileName);
-      StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
-      StorageTaskSnapshot taskSnapshot=await uploadTask.onComplete;
-      setState(() {
-        print("Profile Picture uploaded");
-        Scaffold.of(context).showSnackBar(SnackBar(content: Text('Profile Picture Uploaded')));
-      });
-    }
+
     return new Scaffold(
       appBar: new AppBar(
           leading: IconButton(
@@ -88,7 +102,16 @@ class _ProfileRoute extends State<ProfileRoute> {
           centerTitle: true,
           backgroundColor: Colors.black.withOpacity(.8),
 
-          title: new Text( "$firstName`s Profile",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) )
+          title: new Text( "$firstName`s Profile",style: TextStyle(color: Colors.white,fontSize: 19,fontStyle: FontStyle.italic) ),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.rotate_left),onPressed: (){
+            _auth.signOut();
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LoginPage()));
+
+          } )
+        ],
       ),
       body:
       Builder(
@@ -121,8 +144,11 @@ class _ProfileRoute extends State<ProfileRoute> {
                                      child: SizedBox(
                                        width: 180,
                                        height: 180,
-                                       child: (_image!=null)?Image.file(_image,fit:BoxFit.fill):
-                                       Image.network("https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                                       child: (_image!=null)?Image.file(
+                                         _image,
+                                         fit: BoxFit.fill,
+                                       ):
+                                       Image.network(image,
                                        fit:BoxFit.fill,
                                      ),
                                    ),
@@ -151,7 +177,9 @@ class _ProfileRoute extends State<ProfileRoute> {
                                              color: Colors.white70
                                          ),
                                          onPressed: (){
-                                           uploadPic(context);
+
+                                           uploadFile(_image);
+
                                          },
                                        ),
                                      ],

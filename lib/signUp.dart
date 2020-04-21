@@ -173,7 +173,8 @@ class SignUpPageState extends State<SignUpPage> with TickerProviderStateMixin{
                                       'lname' : lname,
                                       'age'   : age,
                                       'email' : email,
-                                      'timestamp': DateTime.now().toUtc().millisecondsSinceEpoch
+                                      'timestamp': DateTime.now().toUtc().millisecondsSinceEpoch,
+                                      'img': "https://firebasestorage.googleapis.com/v0/b/mfapp-ab17f.appspot.com/o/icon.png?alt=media&token=6669f0c1-b228-4137-a654-214e2c458f62",
 
 
                                     });
